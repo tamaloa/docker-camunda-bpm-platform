@@ -1,6 +1,6 @@
 FROM openjdk:8u151-jre-alpine3.7 as builder
 
-ARG VERSION=7.10.0-alpha1
+ARG VERSION=7.10.0-alpha2
 ARG DISTRO=tomcat
 ARG SNAPSHOT=false
 
