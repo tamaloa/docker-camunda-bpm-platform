@@ -14,9 +14,10 @@ RUN apk add --no-cache \
         wget \
         xmlstarlet
 
-COPY download.sh camunda-tomcat.sh camunda-wildfly.sh  /tmp/
+COPY download.sh camunda-tomcat.sh camunda-wildfly.sh change_port.sh  /tmp/
 
 RUN /tmp/download.sh
+RUN /tmp/change_port.sh
 
 
 ##### FINAL IMAGE #####
@@ -39,7 +40,8 @@ ENV WAIT_FOR_TIMEOUT=30
 ENV TZ=UTC
 ENV DEBUG=false
 
-EXPOSE 8080 8000
+# On heroku one has to bind to $PORT inside the container!!
+#EXPOSE 8080 8000
 
 RUN apk add --no-cache \
         bash \
