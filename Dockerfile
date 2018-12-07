@@ -14,10 +14,11 @@ RUN apk add --no-cache \
         wget \
         xmlstarlet
 
-COPY download.sh camunda-tomcat.sh camunda-wildfly.sh change_port.sh  /tmp/
+COPY download.sh camunda-tomcat.sh camunda-wildfly.sh change_port.sh cleanup.sh /tmp/
 
 RUN /tmp/download.sh
 RUN /tmp/change_port.sh
+RUN /tmp/cleanup.sh
 
 
 ##### FINAL IMAGE #####
